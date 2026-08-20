@@ -1,0 +1,20 @@
+server:
+  port: 0
+
+spring:
+  application:
+    name: ping-service
+
+app:
+  pong:
+    base-url: http://localhost:8081
+    path: /hello
+  ping:
+    interval-ms: 1000
+  rate-limit:
+    lock-file: ${java.io.tmpdir}/ping-rate.lock
+    max-requests-per-second: 2
+
+logging:
+  file:
+    name: logs/ping-${INSTANCE_ID:default}.log
